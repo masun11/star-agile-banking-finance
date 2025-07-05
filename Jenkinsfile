@@ -52,9 +52,9 @@ pipeline {
         
         stage('Deploy to Kubernetes Dev Environment') {
             steps {
-		        script {
-		            sshPublisher(publishers: [sshPublisherDesc(configName: 'kubernetes_ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kubernetesdeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.kaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-		       }
+		script {
+			sshPublisher(publishers: [sshPublisherDesc(configName: 'kubernetes_ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kubernetesdeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.kaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+		}
             }
     	}
     }
