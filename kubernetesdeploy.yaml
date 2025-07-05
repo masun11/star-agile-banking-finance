@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: bankapp-eta-container
-        image: loksaieta/bankapp-eta-app
+        image: mausnulla/bankapp-eta-app
         ports:
-        - containerPort: 8082
+        - containerPort: 8081   # ✅ Match the exposed port in the Docker image
 ---
 apiVersion: v1
 kind: Service
@@ -29,9 +29,8 @@ metadata:
 spec:
   selector:
     app: bankapp-eta-app
-
   type: NodePort
   ports:
-  - nodePort: 31032    
-    port: 8082
-    targetPort: 8082
+  - nodePort: 31032           # This is the exposed port on the Node (external)
+    port: 8081                # ✅ Port the service will expose internally
+    targetPort: 8081          # ✅ Match containerPort inside pod
