@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'worker1' }
+    agent { label 'workder_node_ssh' }
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub_access')
