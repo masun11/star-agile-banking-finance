@@ -24,7 +24,6 @@ pipeline {
                 sh 'pwd'
                 sh 'whoami'
                 sh 'groups'
-                sh 'docker ps'
                 sh 'docker version'
                 sh "docker build -t mausnulla/bankapp-eta-app:${BUILD_NUMBER} ."
                 sh "docker tag mausnulla/bankapp-eta-app:${BUILD_NUMBER} mausnulla/bankapp-eta-app:latest"
