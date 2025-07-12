@@ -3,7 +3,7 @@ pipeline {
     agent { label 'slave1' }
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub_cred')
+        DOCKERHUB_CREDENTIALS = credentials('docker_login')
     }
 
     stages {
